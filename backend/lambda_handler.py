@@ -16,6 +16,9 @@ users = db["users"]
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+@app.route("/")
+def home():
+    return "hello to backend"
 @app.route("/signup", methods=["POST"], strict_slashes=False)
 def signup():
     try:
@@ -40,4 +43,4 @@ def get_data():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)  # ✅ host=0.0.0.0 for Docker
+    app.run(debug=True, host="0.0.0.0", port=5000) 
